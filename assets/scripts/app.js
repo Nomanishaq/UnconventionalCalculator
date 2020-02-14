@@ -1,40 +1,40 @@
-const defultResult = 0;
-let changeResult = defultResult;
+const defaultValue = 0;
+let changeValue = defaultValue;
 
-let getUserInput = ()=>{
-   return parseInt(userValue.value);
-}
-let createAndWriteOutput = (operator, resultBeforeCal, calNum)=>{
-    const calDescription = `${resultBeforeCal} ${operator} ${calNum}`;
-    outputResult(changeResult,calDescription);
+let userInput = ()=>{
+    return parseInt(userValue.value);
 }
 
+let createAndWriteOutput =(operator,resultBeforCal,calNum)=>{
+    const calDescription = `${resultBeforCal} ${operator} ${calNum}`;
+    outputResult(changeValue,calDescription);
+}
 
-let add =()=>{
-    const userInput = getUserInput();
-    const initialResult = changeResult;
-    changeResult = changeResult + userInput;
-    createAndWriteOutput('+',initialResult,userInput);
+let add = ()=>{
+    let userValue = userInput();
+    let initialVal = changeValue;
+    changeValue = changeValue + userValue;
+    createAndWriteOutput('+',initialVal,userValue);
 }
-let sub = ()=>{
-const userInput = getUserInput();
-const initialResult = changeResult;
-changeResult = changeResult - userInput;
-createAndWriteOutput('-',initialResult,userInput);
+let sub = () =>{
+    let userValue = userInput();
+    let initialVal = changeValue;
+    changeValue = changeValue - userValue;
+    createAndWriteOutput('-',initialVal,userValue);
 }
-let multiply = ()=>{
-    const userInput = getUserInput();
-    const initialResult = changeResult;
-    changeResult = changeResult * userInput;
-    createAndWriteOutput('*',initialResult,userInput);
+let multi = () =>{
+    let userValue = userInput();
+    let initialVal = changeValue;
+    changeValue = changeValue * userValue;
+    createAndWriteOutput('*',initialVal,userValue);
 }
-let divide = ()=>{
-    const userInput = getUserInput();
-    const initialResult = changeResult;
-    changeResult = changeResult / userInput;
-    createAndWriteOutput('/',initialResult,userInput);
+let divide = () =>{
+    let userValue = userInput();
+    let initialVal = changeValue;
+    changeValue = changeValue / userValue;
+    createAndWriteOutput('/',initialVal,userValue);
 }
 addBtn.addEventListener('click',add);
-subtractBtn.addEventListener('click',sub);
-multiplyBtn.addEventListener('click',multiply);
 divideBtn.addEventListener('click',divide);
+multiplyBtn.addEventListener('click',multi);
+subtractBtn.addEventListener('click',sub);
