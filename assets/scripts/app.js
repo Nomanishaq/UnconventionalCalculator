@@ -21,37 +21,41 @@ let writeLog = (operationIdentifier,prevResult,operationNumber,newReslt) =>{
     console.log(val);
     
 }
+let calculateResult = (operator)=>{
+    let mathOperator;
+    let userValue = userInput();
+    let initialVal = changeValue;
+    if (operator === "ADD") {
+    changeValue += userValue;
+    mathOperator = '+';          
+    } else if(operator === 'SUBTRACT'){
+        changeValue -= userValue;
+        mathOperator = '-';
+    } else if (operator === 'MULTIPLY') {
+        changeValue *= userValue;
+        mathOperator = '*';
+    } else if (operator === 'DIVIDE') {
+        changeValue /= userValue;
+        mathOperator = '/';
+    }
+createAndWriteOutput(mathOperator, initialVal, userValue);
+writeLog(operator,initialVal,userValue,changeValue);
+}
 
 let add = () => {
-    let userValue = userInput();
-    let initialVal = changeValue;
-    changeValue = changeValue + userValue;
-    createAndWriteOutput('+', initialVal, userValue);
-    writeLog('add',initialVal,userValue,changeValue);
+    calculateResult('ADD');
 }
 let sub = () => {
-    let userValue = userInput();
-    let initialVal = changeValue;
-    changeValue = changeValue - userValue;
-    createAndWriteOutput('-', initialVal, userValue);
-    writeLog('Subtract',initialVal,userValue,changeValue);
-
+    calculateResult('SUBTRACT');
 }
 let multi = () => {
-    let userValue = userInput();
-    let initialVal = changeValue;
-    changeValue = changeValue * userValue;
-    createAndWriteOutput('*', initialVal, userValue);
-    writeLog('Multiply',initialVal,userValue,changeValue);
+    calculateResult('MULTIPLY')
 }
 let divide = () => {
-    let userValue = userInput();
-    let initialVal = changeValue;
-    changeValue = changeValue / userValue;
-    createAndWriteOutput('/', initialVal, userValue);
-    writeLog('Divide',initialVal,userValue,changeValue);
+    calculateResult('DIVIDE');
 }
 addBtn.addEventListener('click', add);
 divideBtn.addEventListener('click', divide);
 multiplyBtn.addEventListener('click', multi);
 subtractBtn.addEventListener('click', sub);
+    
